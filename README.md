@@ -58,36 +58,44 @@ moves_api/
 ## Быстрый старт
 
 ### 1. Клонирование репозитория
+
 ```bash
-git clone <ссылка_на_репозиторий>
+git clone https://github.com/mqdnx/moves_api.git
 cd moves_api
 ```
 
 ### 2. Создание и активация виртуального окружения
+
 ```bash
 python -m venv venv
 ```
 
 - Windows:
+
 ```bash
 venv\Scripts\activate
 ```
+
 - Linux / macOS:
+
 ```bash
 source venv/bin/activate
 ```
 
 ### 3. Установка зависимостей
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 4. Применение миграций
+
 ```bash
 alembic upgrade head
 ```
 
 ### 5. Запуск приложения через uvicorn
+
 ```bash
 uvicorn src.main:app --reload
 ```
@@ -97,15 +105,15 @@ uvicorn src.main:app --reload
 
 ## Основные эндпоинты
 
-| Метод | Эндпоинт | Описание |
-|---|---|---|
-| GET | / | Проверка работы сервиса |
-| GET | /movies/ | Получить список фильмов (с фильтрацией и пагинацией) |
-| GET | /movies/{movie_id} | Получить фильм по ID |
-| POST | /movies/ | Добавить фильм |
-| PUT | /movies/{movie_id} | Полное обновление фильма |
-| PATCH | /movies/{movie_id} | Частичное обновление фильма |
-| DELETE | /movies/{movie_id} | Удалить фильм |
+| Метод  | Эндпоинт           | Описание                                             |
+| ------ | ------------------ | ---------------------------------------------------- |
+| GET    | /                  | Проверка работы сервиса                              |
+| GET    | /movies/           | Получить список фильмов (с фильтрацией и пагинацией) |
+| GET    | /movies/{movie_id} | Получить фильм по ID                                 |
+| POST   | /movies/           | Добавить фильм                                       |
+| PUT    | /movies/{movie_id} | Полное обновление фильма                             |
+| PATCH  | /movies/{movie_id} | Частичное обновление фильма                          |
+| DELETE | /movies/{movie_id} | Удалить фильм                                        |
 
 ## Фильтрация и сортировка
 
@@ -119,6 +127,7 @@ uvicorn src.main:app --reload
 - `offset` — смещение списка (по умолчанию 0)
 
 Пример запроса:
+
 ```http
 GET /movies/?year_min=2000&year_max=2024&min_rating=7.0&order_by=-rating&limit=10
 ```
